@@ -21,10 +21,10 @@
       <h3 class="text-success"><strong>Click on the tabs above for details about the api usage</strong></h3>
       <h3><strong>Api entry points: </strong></h3>    
       <ul>
-        <li><strong>Image search:</strong><code>baseurl/api/image</code></li>
-        <li><strong>Url shortener:</strong><code>baseurl/api/shorten</code></li>
-        <li><strong>GeoIP:</strong><code>baseurl/api/geoip</code></li>
-        <li><strong>Date Converter:</strong><code>baseurl/api/time</code></li>
+        <li><strong>Image search:</strong><code>https://api-b.herokuapp.com/api/image</code></li>
+        <li><strong>Url shortener:</strong><code>https://api-b.herokuapp.com/api/shorten</code></li>
+        <li><strong>GeoIP:</strong><code>https://api-b.herokuapp.com/api/geoip</code></li>
+        <li><strong>Date Converter:</strong><code>https://api-b.herokuapp.com/api/time</code></li>
       </ul>
     </div>
   </div>
@@ -38,11 +38,11 @@
   <div class="col-md-12 col-xs-12">
     <h2 class="text-primary">API usage</h2>
     <h3><strong>Request</strong></h3>
-    <p><code>baseUrl/api/image?<strong>query string</strong></code></p>
+    <p><code>https://api-b.herokuapp.com/api/image?<strong>query string</strong></code></p>
     <p>Where <code><strong>query string</strong></code> is in this format: <code><strong>search=[string]&count=[number]&offset=[number]</strong></code></p>
     <p><code>count</code> and <code>offset</code> are optional</p>
     <p>Exemple:</p>
-    <p><code><strong>baseUrl/api/image?search=freecodecamp&count=5&offset=1</strong></code></p>
+    <p><code><strong>https://api-b.herokuapp.com/api/image?search=freecodecamp&count=5&offset=1</strong></code></p>
     <h3><strong>Response</strong></h3>
     <p>If the query string is valid you'll get a JSON response in this format</p>
     <pre>
@@ -102,17 +102,17 @@
   <div class="col-md-12 col-xs-12">
     <h2 class="text-primary">API usage</h2>
     <h3><strong>Request</strong></h3>
-    <p><code>baseUrl/api/shorten?<strong>query string</strong></code></p>
+    <p><code>https://api-b.herokuapp.com/api/shorten?<strong>query string</strong></code></p>
     <p>Where <code><strong>query string</strong></code> is in this format: <code><strong>url=[url to shorten]</strong></code></p>
     <p>The Url you want to shorten must contain the protocol.</p>
     <p>Exemple:</p>
-    <p><code><strong>baseUrl/api/shorten?url=https://google.com</strong></code></p>
+    <p><code><strong>https://api-b.herokuapp.com/api/shorten?url=https://google.com</strong></code></p>
     <h3><strong>Response</strong></h3>
     <p>If the query contains a valid url, you'll get a response in this format</p>
     <pre>
     {
       "url": "https://google.com",
-      "short_url": "baseUrl/rJtzcNRix"
+      "short_url": "https://api-b.herokuapp.com/rJtzcNRix"
     }
     </pre>
   </div>
@@ -127,11 +127,11 @@
 <div class="col-xs-12">
 <h3><strong>Usage</strong></h3>
 <p>To receive the response, send a GET request to</p>
-<code>baseUrl/api/geoip</code>
+<code>https://api-b.herokuapp.com/api/geoip</code>
 <br/>
 <h3><strong>Response</strong></h3>
 <div class="text-primary">
-<p><a href="#">Example [To do: add a link here]</a></p>
+<p><a href="https://api-b.herokuapp.com/api/geoip">Example</a></p>
 </div>
 <p>A successful request will return the following:</p>
 <pre class="text-danger">
@@ -168,7 +168,7 @@
 <div class="col-xs-12">
 <h3><strong>Usage</strong></h3>
 <p>To receive the response, send a GET request to</p>
-<code>baseUrl/api/time/<strong>datestring</strong></code>
+<code>https://api-b.herokuapp.com/api/time/<strong>datestring</strong></code>
 <br />
 <br />
 <p>Where <code><strong>datestring</strong></code> can be a:</p>
@@ -177,6 +177,8 @@
   <li>A <a href="https://en.wikipedia.org/wiki/Unix_time" target="_blank">Unix timestamp</a>.</li>
   <li>A <strong>"Natural" or spoken</strong> date, such as <em>Thursday 4th April 2030</em>.</li>
 </ul>
+<p>Exemple:</p>
+<p><code><strong>https://api-b.herokuapp.com/api/time/Thursday 4th April 2030</strong></code></p>
 <h3><strong>Response</strong></h3>
 <p>A successuful request will return the following:</p>
 <pre class="text-danger">

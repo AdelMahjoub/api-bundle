@@ -1,0 +1,215 @@
+<% include ./partials/header %>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a></li>
+  <li role="presentation"><a href="#image-search" aria-controls="mage-search" role="tab" data-toggle="tab">Image search</a></li>
+  <li role="presentation"><a href="#url-shortener" aria-controls="url-shortener" role="tab" data-toggle="tab">Url shortener</a></li>
+  <li role="presentation"><a href="#geoip" aria-controls="geoip" role="tab" data-toggle="tab">GeoIP</a></li>
+  <li role="presentation"><a href="#timestamp-service" aria-controls="timestamp-service" role="tab" data-toggle="tab">Date Converter</a></li>
+</ul>
+
+<div class="tab-content">
+
+<article role="tabpanel" class="tab-pane active" id="overview">
+  <div class="page-header">
+    <h1><strong>FCC API Bundle</strong></h1>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-xs-12">
+      <h2 class="text-primary">Overview</h2>
+      <h3 class="text-success"><strong>Click on the tabs above for details about the api usage</strong></h3>
+      <h3><strong>Api entry points: </strong></h3>    
+      <ul>
+        <li><strong>Image search:</strong><code>baseurl/api/image</code></li>
+        <li><strong>Url shortener:</strong><code>baseurl/api/shorten</code></li>
+        <li><strong>GeoIP:</strong><code>baseurl/api/geoip</code></li>
+        <li><strong>Date Converter:</strong><code>baseurl/api/time</code></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article role="tabpanel" class="tab-pane" id="image-search">
+<div class="page-header">
+  <h1><strong>Image Search API</strong></h1>
+</div>
+<div class="row">
+  <div class="col-md-12 col-xs-12">
+    <h2 class="text-primary">API usage</h2>
+    <h3><strong>Request</strong></h3>
+    <p><code>baseUrl/api/image?<strong>query string</strong></code></p>
+    <p>Where <code><strong>query string</strong></code> is in this format: <code><strong>search=[string]&count=[number]&offset=[number]</strong></code></p>
+    <p><code>count</code> and <code>offset</code> are optional</p>
+    <p>Exemple:</p>
+    <p><code><strong>baseUrl/api/image?search=freecodecamp&count=5&offset=1</strong></code></p>
+    <h3><strong>Response</strong></h3>
+    <p>If the query string is valid you'll get a JSON response in this format</p>
+    <pre>
+    [
+      {
+      "name": "苏州全民在线编程挑战赛 | FreeCodeCamp中文社区",
+      "thumbnailUrl": "https://tse4.mm.bing.net/th?id=OIP.QD92-ToXuIfd-SyzchNrZAEsEs&pid=Api",
+      "hostPageDisplayUrl": "https://freecodecamp.cn/code",
+      "datePublished": "2016-06-07T09:57:00",
+      "encodingFormat": "png",
+      "contentSize": "6545 B"
+      },
+      {
+      "name": "freeCodeCamp - Bay Area Codes",
+      "thumbnailUrl": "https://tse1.mm.bing.net/th?id=OIP.2FZpohdM5fjiiw96--YLCgEsCo&pid=Api",
+      "hostPageDisplayUrl": "bayareacodes.org/directory/freecodecamp-2",
+      "datePublished": "2015-12-28T16:40:00",
+      "encodingFormat": "jpeg",
+      "contentSize": "7585 B"
+      },
+      {
+      "name": "Learn to Code and Help Nonprofits | Free Code Camp",
+      "thumbnailUrl": "https://tse1.mm.bing.net/th?id=OIP.XlQSyF7auw2C0vbTJVyoawEsDh&pid=Api",
+      "hostPageDisplayUrl": "https://www.freecodecamp.com",
+      "datePublished": "2016-12-28T20:43:00",
+      "encodingFormat": "jpeg",
+      "contentSize": "111602 B"
+      },
+      {
+      "name": "free code camp is a community for learning to program for free free ...",
+      "thumbnailUrl": "https://tse2.mm.bing.net/th?id=OIP.8YnYYfakSxJuL98qkA6DLgEsBk&pid=Api",
+      "hostPageDisplayUrl": "softwareengineeringdaily.com/2016/09/29/remote-work-with-scott-berkun",
+      "datePublished": "2016-09-29T09:04:00",
+      "encodingFormat": "jpeg",
+      "contentSize": "12722 B"
+      },
+      {
+      "name": "Nobody wants to use software – freeCodeCamp",
+      "thumbnailUrl": "https://tse1.mm.bing.net/th?id=OIP.v6ICV4Ryug-8IjL_kwDbuwEsDH&pid=Api",
+      "hostPageDisplayUrl": "https://medium.freecodecamp.com/nobody-wants-to-use-software...",
+      "datePublished": "2017-01-25T15:51:00",
+      "encodingFormat": "jpeg",
+      "contentSize": "125582 B"
+      }
+    ]
+    </pre>
+  </div>
+</div>
+</article>
+
+<article role="tabpanel" class="tab-pane" id="url-shortener">
+<div class="page-header">
+  <h1><strong>Url Shortener</strong></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12 col-xs-12">
+    <h2 class="text-primary">API usage</h2>
+    <h3><strong>Request</strong></h3>
+    <p><code>baseUrl/api/shorten?<strong>query string</strong></code></p>
+    <p>Where <code><strong>query string</strong></code> is in this format: <code><strong>url=[url to shorten]</strong></code></p>
+    <p>The Url you want to shorten must contain the protocol.</p>
+    <p>Exemple:</p>
+    <p><code><strong>baseUrl/api/shorten?url=https://google.com</strong></code></p>
+    <h3><strong>Response</strong></h3>
+    <p>If the query contains a valid url, you'll get a response in this format</p>
+    <pre>
+    {
+      "url": "https://google.com",
+      "short_url": "baseUrl/rJtzcNRix"
+    }
+    </pre>
+  </div>
+</div>
+</article>
+
+<article role="tabpanel" class="tab-pane" id="geoip">
+<div class="page-header">
+<h1 class="hidden-xs"><strong>GeoIp API</strong><small> Named 'header parser' in the FCC challenge</small></h1>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<h3><strong>Usage</strong></h3>
+<p>To receive the response, send a GET request to</p>
+<code>baseUrl/api/geoip</code>
+<br/>
+<h3><strong>Response</strong></h3>
+<div class="text-primary">
+<p><a href="#">Example [To do: add a link here]</a></p>
+</div>
+<p>A successful request will return the following:</p>
+<pre class="text-danger">
+{
+  "ip": "::ffff:127.0.0.1",
+  "language": "fr-FR",
+  "software": "(X11; Linux x86_64)",
+  "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+  "location": {
+    "ip": "127.0.0.1",
+    "country_code": "",
+    "country_name": "",
+    "region_code": "",
+    "region_name": "",
+    "city": "",
+    "zip_code": "",
+    "time_zone": "",
+    "latitude": 0,
+    "longitude": 0,
+    "metro_code": 0
+  },
+  "isp": {}
+}
+</pre>
+</div><!--END OF COL-->
+</div><!--END OF ROW-->
+</article>
+
+<article role="tabpanel" class="tab-pane" id="timestamp-service">
+<div class="page-header">
+<h1><strong>Timestamp Microservice API</strong></h1>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<h3><strong>Usage</strong></h3>
+<p>To receive the response, send a GET request to</p>
+<code>baseUrl/api/time/<strong>datestring</strong></code>
+<br />
+<br />
+<p>Where <code><strong>datestring</strong></code> can be a:</p>
+<ul>
+  <li>Any <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> date.</li>
+  <li>A <a href="https://en.wikipedia.org/wiki/Unix_time" target="_blank">Unix timestamp</a>.</li>
+  <li>A <strong>"Natural" or spoken</strong> date, such as <em>Thursday 4th April 2030</em>.</li>
+</ul>
+<h3><strong>Response</strong></h3>
+<p>A successuful request will return the following:</p>
+<pre class="text-danger">
+{
+  "unix": "1901484000",
+  "unixMilliseconds": "1901484000000",
+  "natural": "Thursday, April 4th 2030",
+  "isoString": "2030-04-03T22:00:00.000Z",
+  "parsed": {
+  "years": 2030,
+  "months": 3,
+  "date": 4,
+  "hours": 0,
+  "minutes": 0,
+  "seconds": 0,
+  "milliseconds": 0
+}
+</pre>
+<p>A failed request will return the following:</p>
+<pre class="text-danger">
+{
+  "unix": null,
+  "natural": null
+}
+</pre>
+</div>
+</div>
+</article>
+
+</div><!-- END OF TAB CONTENT-->
+
+<div class="page-header">
+</div>
+
+
+<% include ./partials/footer %>
